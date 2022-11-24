@@ -33,28 +33,20 @@ public class MovementPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("w"))
-        {
-            rb.AddForce(Vector3.forward * 1 * walkForce, ForceMode.Acceleration);
-        }
-        if (Input.GetKey("a"))
-        {
-            rb.AddForce(Vector3.left * 1 * walkForce, ForceMode.Acceleration);
-        }
-        if (Input.GetKey("s"))
-        {
-            rb.AddForce(Vector3.forward * -1 * walkForce, ForceMode.Acceleration);
-        }
-        if (Input.GetKey("d"))
-        {
-            rb.AddForce(Vector3.left * -1 * walkForce, ForceMode.Acceleration);
-        }
 
-        if (Input.GetKeyDown("space"))
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        rb.velocity = new Vector3(
+            horizontalInput * walkForce,
+            rb.velocity.y,
+            verticalInput * walkForce
+        );
+
+        if (Input.GetButtonDown("Jump"))
         {
             if (this.canJump)
             {
-                //jump
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 this.canJump = false;
             }
