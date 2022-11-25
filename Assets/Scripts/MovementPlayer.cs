@@ -6,9 +6,14 @@ public class MovementPlayer : MonoBehaviour
 {
 
     Rigidbody rb;
-    public float jumpForce;
-    public float walkForce;
-    bool canJump;
+    [SerializeField] float jumpForce = 5f;
+    [SerializeField] float walkForce = 5f;
+
+    [SerializeField] Transform feet;
+    [SerializeField] LayerMask layerGround;
+
+
+
     //called before first frame update
     private void Awake()
     {
@@ -21,13 +26,9 @@ public class MovementPlayer : MonoBehaviour
 
     }
 
-
-    private void OnCollisionEnter(Collision collision)
+    bool isFeetTouchingGround()
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            this.canJump = true;
-        }
+        return Physics.CheckSphere(feet.position, 0.1f, layerGround);
     }
 
     // Update is called once per frame
@@ -45,10 +46,9 @@ public class MovementPlayer : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (this.canJump)
+            if (this.isFeetTouchingGround())
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                this.canJump = false;
             }
         }
     }
