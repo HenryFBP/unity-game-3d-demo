@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 537461630}
   m_Layer: 0
-  m_Name: Waypoint 2
+  m_Name: Waypoint M2
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -234,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -318,6 +319,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ce216dc617b4e40b2797e25767f384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &781009638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,8 +415,8 @@ GameObject:
   - component: {fileID: 927737760}
   - component: {fileID: 927737759}
   m_Layer: 0
-  m_Name: Monster
-  m_TagString: Untagged
+  m_Name: Monster 1
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -448,7 +461,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927737757}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -602,7 +615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1108446997}
   m_Layer: 0
-  m_Name: Waypoint 1
+  m_Name: Waypoint M1
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -699,6 +712,7 @@ GameObject:
   - component: {fileID: 1311113622}
   - component: {fileID: 1311113626}
   - component: {fileID: 1311113627}
+  - component: {fileID: 1311113628}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -821,6 +835,18 @@ MonoBehaviour:
   layerGround:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1311113628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311113621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ce216dc617b4e40b2797e25767f384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1338192657
 GameObject:
   m_ObjectHideFlags: 0
