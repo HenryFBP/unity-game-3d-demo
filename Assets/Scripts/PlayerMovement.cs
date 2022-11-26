@@ -26,6 +26,21 @@ public class PlayerMovement: MonoBehaviour
 
     }
 
+    void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy Head"))
+        {
+            Destroy(collision.transform.parent.gameObject);
+            this.Jump();
+        }
+    }
+
+
     bool isFeetTouchingGround()
     {
         return Physics.CheckSphere(feet.position, 0.1f, layerGround);
@@ -48,7 +63,7 @@ public class PlayerMovement: MonoBehaviour
         {
             if (this.isFeetTouchingGround())
             {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                this.Jump();
             }
         }
     }

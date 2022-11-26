@@ -12,13 +12,4 @@ public class GameController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(player.transform.position.y < -10)
-        {
-            print("Fell out da world!");
-            player.transform.position = new Vector3(3, 3, 3);
-        }
-    }
 }
