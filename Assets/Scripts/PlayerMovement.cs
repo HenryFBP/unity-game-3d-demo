@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement: MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     Rigidbody rb;
+
+    [SerializeField] bool areWePlayer2 = false;
+
     [SerializeField] float jumpForce = 5f;
     [SerializeField] float walkForce = 5f;
 
@@ -50,13 +53,31 @@ public class PlayerMovement: MonoBehaviour
     void Update()
     {
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInputPlayer1 = Input.GetAxis("HorizontalP1");
+        float verticalInputPlayer1 = Input.GetAxis("VerticalP1");
+
+        float horizontalInputPlayer2 = Input.GetAxis("HorizontalP2");
+        float verticalInputPlayer2 = Input.GetAxis("VerticalP2");
+
+
+        float hi;
+        float vi;
+
+        if (this.areWePlayer2)
+        {
+            hi = horizontalInputPlayer2;
+            vi = verticalInputPlayer2;
+        }
+        else
+        {
+            hi = horizontalInputPlayer1;
+            vi = verticalInputPlayer1;
+        }
 
         rb.velocity = new Vector3(
-            horizontalInput * walkForce,
+            horizontalInputPlayer1 * walkForce,
             rb.velocity.y,
-            verticalInput * walkForce
+            verticalInputPlayer1 * walkForce
         );
 
         if (Input.GetButtonDown("Jump"))

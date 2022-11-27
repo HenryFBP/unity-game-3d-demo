@@ -15,6 +15,7 @@ public class PlayerLife : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic= true;
         GetComponent<PlayerMovement>().enabled = false;
         this.alive = false;
+        Destroy(this.player);
 
         Invoke(nameof(ReloadLevel), 2f);
     }
