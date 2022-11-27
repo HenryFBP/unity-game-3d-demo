@@ -75,9 +75,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rb.velocity = new Vector3(
-            horizontalInputPlayer1 * walkForce,
+            hi * walkForce,
             rb.velocity.y,
-            verticalInputPlayer1 * walkForce
+            vi * walkForce
         );
 
         if (Input.GetButtonDown("Jump"))
